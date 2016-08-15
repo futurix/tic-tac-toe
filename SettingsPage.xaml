@@ -1,0 +1,60 @@
+﻿<phone:PhoneApplicationPage 
+    x:Name="SettingsObject"
+    x:Class="TicTacToe.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="TIC-TAC-TOE" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <toolkit:ListPicker 
+                x:Name="XPicker"
+                HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                Grid.Row="0" 
+                Header="Difficulty for X" 
+                ItemsSource="{Binding ElementName=SettingsObject, Path=DifficultyOptions}" 
+                SelectedItem="{Binding ElementName=SettingsObject, Path=DifficultyX, Mode=TwoWay}" />
+            <toolkit:ListPicker 
+                x:Name="OPicker"
+                HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                Grid.Row="1" 
+                Header="Difficulty for O" 
+                ItemsSource="{Binding ElementName=SettingsObject, Path=DifficultyOptions}" 
+                SelectedItem="{Binding ElementName=SettingsObject, Path=DifficultyO, Mode=TwoWay}" />
+            <Button 
+                x:Name="ResetButton" 
+                Content="reset statistics" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Grid.Row="2" 
+                Click="ResetButton_Click" />
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

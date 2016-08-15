@@ -1,0 +1,92 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="TicTacToe.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+    
+    <phone:PhoneApplicationPage.Resources>
+        <Style x:Key="GameBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Arial Black" />
+            <Setter Property="FontSize" Value="96" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+        <Style x:Key="GameBlockWrapperStyle" TargetType="Border">
+            <Setter Property="Margin" Value="1,1,1,1" />
+            <Setter Property="BorderBrush" Value="{StaticResource PhoneContrastBackgroundBrush}" />
+            <Setter Property="BorderThickness" Value="1" /> 
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid x:Name="gameGrid" Width="456" Height="456" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Grid.Row="0" Style="{StaticResource GameBlockWrapperStyle}">
+                    <TextBlock Name="block7" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                </Border>
+                <Border Grid.Column="1" Grid.Row="0" Style="{StaticResource GameBlockWrapperStyle}">
+                    <TextBlock Name="block8" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                </Border>
+                <Border Grid.Column="2" Grid.Row="0" Style="{StaticResource GameBlockWrapperStyle}">
+                    <TextBlock Name="block9" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource GameBlockWrapperStyle}">
+                    <TextBlock Name="block4" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                </Border>
+                <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource GameBlockWrapperStyle}">
+                    <TextBlock Name="block5" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                </Border>
+                <Border Grid.Column="2" Grid.Row="1" Style="{StaticResource GameBlockWrapperStyle}">
+                    <TextBlock Name="block6" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                </Border>
+                <Border Grid.Column="0" Grid.Row="2" Style="{StaticResource GameBlockWrapperStyle}">
+                    <TextBlock Name="block1" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                </Border>
+                <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource GameBlockWrapperStyle}">
+                    <TextBlock Name="block2" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                </Border>
+                <Border Grid.Column="2" Grid.Row="2" Style="{StaticResource GameBlockWrapperStyle}">
+                    <TextBlock Name="block3" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+ 
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Icons/appbar.new.rest.png" Text="New Game" Click="NewGameButton_Click" />
+            <shell:ApplicationBarIconButton IconUri="/Icons/appbar.check.rest.png" Text="Statistics" Click="StatsButton_Click" />
+            <shell:ApplicationBarIconButton IconUri="/Icons/appbar.feature.settings.rest.png" Text="Settings" Click="SettingsButton_Click" />
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="About" Click="AboutMenuItem_Click" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
