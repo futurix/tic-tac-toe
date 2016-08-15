@@ -110,6 +110,18 @@ namespace TicTacToe
             Move((GameCell)sender);
         }
 
+        private void PhoneApplicationPage_OrientationChanged(object sender, OrientationChangedEventArgs e)
+        {
+            if ((e.Orientation == PageOrientation.LandscapeRight) || (e.Orientation == PageOrientation.LandscapeLeft))
+            {
+                TitlePanel.Visibility = Visibility.Collapsed;
+            }
+            else if ((e.Orientation == PageOrientation.PortraitDown) || (e.Orientation == PageOrientation.PortraitUp))
+            {
+                TitlePanel.Visibility = Visibility.Visible;
+            }
+        }
+
         private void NewGameButton_Click(object sender, EventArgs e)
         {
             NewGame();

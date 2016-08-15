@@ -1,0 +1,57 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	mc:Ignorable="d"
+	x:Class="WindowsPhoneApplication2.UserControl1"
+	d:DesignWidth="63" d:DesignHeight="63">
+
+	<UserControl.Resources>
+		<System:String x:Key="XData">F1 M 142.967,55.8509L 146.801,52.0349L 155.036,60.3032L 163.364,52.0088L 167.181,55.8448L 158.855,64.1371L 167.035,72.3496L 163.202,76.1643L 155.023,67.9537L 146.672,76.2715L 142.853,72.4382L 151.204,64.1199L 142.967,55.8509 Z</System:String>
+		<Style x:Key="ClearStyle" TargetType="Path">
+			<Setter Property="Fill" Value="{StaticResource PhoneForegroundBrush}" />
+		</Style>
+		<System:String x:Key="OData">F1 M 120.839,51.1303C 127.656,51.1303 133.182,56.6568 133.182,63.4741C 133.182,70.2913 127.656,75.8178 120.839,75.8178C 114.021,75.8178 108.495,70.2913 108.495,63.4741C 108.495,56.6568 114.021,51.1303 120.839,51.1303 Z M 120.839,54.9585C 116.135,54.9585 112.323,58.7711 112.323,63.4741C 112.323,68.1772 116.135,71.9897 120.839,71.9897C 125.542,71.9897 129.354,68.1772 129.354,63.4741C 129.354,58.7711 125.542,54.9585 120.839,54.9585 Z</System:String>
+	</UserControl.Resources>
+
+	<Border Background="#FF2A2929">
+	<Grid x:Name="LayoutRoot" RenderTransformOrigin="0.5,0.5">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Path 
+			x:Name="OPath_Copy" 
+			Stretch="Fill" Style="{StaticResource ClearStyle}" Data="{StaticResource OData}" 
+			Visibility="Visible" UseLayoutRounding="False" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.115" />
+		<Path 
+			x:Name="OPath" 
+			Stretch="Fill" Style="{StaticResource ClearStyle}" Data="{StaticResource OData}" 
+			Visibility="Visible" UseLayoutRounding="False" Grid.Column="1" Grid.Row="1" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+		<Path 
+			x:Name="XPath" 
+			Stretch="Fill" Style="{StaticResource ClearStyle}" Data="{StaticResource XData}" 
+			Visibility="Visible" UseLayoutRounding="False" Width="15" Height="15" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" />
+		<Path 
+			x:Name="XPath_Copy" 
+			Stretch="Fill" Style="{StaticResource ClearStyle}" Data="{StaticResource XData}" 
+			Visibility="Visible" UseLayoutRounding="False" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" />
+		<Path 
+			x:Name="XPath_Copy1" 
+			Stretch="Fill" Style="{StaticResource ClearStyle}" Data="{StaticResource XData}" 
+			Visibility="Visible" UseLayoutRounding="False" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" />
+		<Path 
+			x:Name="XPath_Copy2" 
+			Stretch="Fill" Style="{StaticResource ClearStyle}" Data="{StaticResource XData}" 
+			Visibility="Visible" UseLayoutRounding="False" Width="15" Height="15" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" />
+		</Grid>
+	</Border>
+</UserControl>

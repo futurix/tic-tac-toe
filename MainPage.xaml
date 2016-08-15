@@ -4,21 +4,48 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:tk="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:my="clr-namespace:TicTacToe"
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
-    shell:SystemTray.IsVisible="False">
-    
+    shell:SystemTray.IsVisible="True" OrientationChanged="PhoneApplicationPage_OrientationChanged">
+
+    <tk:TransitionService.NavigationInTransition>
+        <tk:NavigationInTransition>
+            <tk:NavigationInTransition.Backward>
+                <tk:TurnstileTransition Mode="BackwardIn"/>
+            </tk:NavigationInTransition.Backward>
+            <tk:NavigationInTransition.Forward>
+                <tk:TurnstileTransition Mode="ForwardIn"/>
+            </tk:NavigationInTransition.Forward>
+        </tk:NavigationInTransition>
+    </tk:TransitionService.NavigationInTransition>
+
+    <tk:TransitionService.NavigationOutTransition>
+        <tk:NavigationOutTransition>
+            <tk:NavigationOutTransition.Backward>
+                <tk:TurnstileTransition Mode="BackwardOut"/>
+            </tk:NavigationOutTransition.Backward>
+            <tk:NavigationOutTransition.Forward>
+                <tk:TurnstileTransition Mode="ForwardOut"/>
+            </tk:NavigationOutTransition.Forward>
+        </tk:NavigationOutTransition>
+    </tk:TransitionService.NavigationOutTransition>
+
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,4">
+            <TextBlock x:Name="ApplicationTitle" Text="TIC-TAC-TOE" Style="{StaticResource PhoneTextNormalStyle}"/>
+        </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <Grid x:Name="gameGrid" Width="456" Height="456" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">

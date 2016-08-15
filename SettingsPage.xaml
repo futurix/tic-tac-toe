@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:tk="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -15,6 +15,28 @@
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
+    <tk:TransitionService.NavigationInTransition>
+        <tk:NavigationInTransition>
+            <tk:NavigationInTransition.Backward>
+                <tk:TurnstileTransition Mode="BackwardIn"/>
+            </tk:NavigationInTransition.Backward>
+            <tk:NavigationInTransition.Forward>
+                <tk:TurnstileTransition Mode="ForwardIn"/>
+            </tk:NavigationInTransition.Forward>
+        </tk:NavigationInTransition>
+    </tk:TransitionService.NavigationInTransition>
+
+    <tk:TransitionService.NavigationOutTransition>
+        <tk:NavigationOutTransition>
+            <tk:NavigationOutTransition.Backward>
+                <tk:TurnstileTransition Mode="BackwardOut"/>
+            </tk:NavigationOutTransition.Backward>
+            <tk:NavigationOutTransition.Forward>
+                <tk:TurnstileTransition Mode="ForwardOut"/>
+            </tk:NavigationOutTransition.Forward>
+        </tk:NavigationOutTransition>
+    </tk:TransitionService.NavigationOutTransition>
+    
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -33,15 +55,15 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
-            <toolkit:ListPicker 
+
+            <tk:ListPicker 
                 x:Name="XPicker"
                 HorizontalAlignment="Stretch" VerticalAlignment="Top" 
                 Grid.Row="0" 
                 Header="Difficulty for X" 
                 ItemsSource="{Binding ElementName=SettingsObject, Path=DifficultyOptions}" 
                 SelectedItem="{Binding ElementName=SettingsObject, Path=DifficultyX, Mode=TwoWay}" />
-            <toolkit:ListPicker 
+            <tk:ListPicker 
                 x:Name="OPicker"
                 HorizontalAlignment="Stretch" VerticalAlignment="Top" 
                 Grid.Row="1" 
