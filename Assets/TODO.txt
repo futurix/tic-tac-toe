@@ -1,2 +1,1 @@
-Tic-Tac-Toe:
-- more animations
+- add missing option (X or O first)

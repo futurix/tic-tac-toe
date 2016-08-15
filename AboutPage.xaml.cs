@@ -25,15 +25,26 @@ namespace TicTacToe
         {
             base.OnNavigatedTo(e);
 
-            string asmFullName = Assembly.GetExecutingAssembly().FullName;
-            string[] asmOne = asmFullName.Split('=');
-
-            if (asmOne.Length > 1)
+            try
             {
-                string[] asmTwo = asmOne[1].Split(',');
+                string asmFullName = Assembly.GetExecutingAssembly().FullName;
+                string[] asmOne = asmFullName.Split('=');
 
-                if (asmTwo.Length > 0)
-                    VersionSpan.Text = String.Format("Version {0}", asmTwo[0]);
+                if (asmOne.Length > 1)
+                {
+                    string[] asmTwo = asmOne[1].Split(',');
+
+                    if (asmTwo.Length > 0)
+                    {
+                        string[] asmThree = asmTwo[0].Split('.');
+
+                        VersionSpan.Text = String.Format("Version {0}.{1}", asmThree[0], asmThree[1]);
+                    }
+                }
+            }
+            catch
+            {
+                VersionSpan.Text = String.Empty;
             }
         }
     }

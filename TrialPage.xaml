@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage 
-    x:Class="TicTacToe.AboutPage"
+    x:Class="TicTacToe.TrialPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -10,7 +10,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True"
     tk:TiltEffect.IsTiltEnabled="True">
@@ -36,7 +36,7 @@
             </tk:NavigationOutTransition.Forward>
         </tk:NavigationOutTransition>
     </tk:TransitionService.NavigationOutTransition>
-    
+
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -44,41 +44,30 @@
         </Grid.RowDefinitions>
 
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="TIC-TAC-TOE" Style="{StaticResource PhoneTextNormalStyle}" />
-            <TextBlock x:Name="PageTitle" Text="about" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" />
+            <TextBlock x:Name="ApplicationTitle" Text="TIC-TAC-TOE" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="trial" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+
             <TextBlock 
-                HorizontalAlignment="Stretch" VerticalAlignment="Top" 
-                Style="{StaticResource PhoneTextNormalStyle}">
-                <Run>Futurix Tic-Tac-Toe</Run>
-                <LineBreak />
-                <Run x:Name="VersionSpan"></Run>
-                <LineBreak />
-                <Run>© 2011 Alex Tereshchenko, Futurix Ltd</Run>
-                <LineBreak />
-            </TextBlock>
-            <TextBlock 
-                Grid.Row="1" 
                 HorizontalAlignment="Stretch" VerticalAlignment="Top"
-                TextWrapping="Wrap"
-                Style="{StaticResource PhoneTextNormalStyle}">
-                For comments, support, and feature requests please visit my website at:
+                Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap">
+                <Run>This is a trial version of Futurix Tic-Tac-Toe.</Run>
+                <LineBreak />
+                <Run>There are no time or functionality limitations in this trial - however if you want to get rid of 
+                    the trial reminder and support the future development, please consider purchasing this app :-)</Run>
             </TextBlock>
-            <HyperlinkButton 
-                Content="http://fximage.com/" 
-                TargetName="_blank"
-                NavigateUri="http://fximage.com/"
-                Grid.Row="2" 
-                HorizontalAlignment="Stretch" VerticalAlignment="Top" 
-                HorizontalContentAlignment="Left" />
+            <Button 
+                Content="buy this game" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Grid.Row="1" 
+                Click="Button_Click" />
         </Grid>
     </Grid>
 

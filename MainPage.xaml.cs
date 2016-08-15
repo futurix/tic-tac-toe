@@ -10,12 +10,14 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Marketplace;
 
 namespace TicTacToe
 {
     public partial class MainPage : PhoneApplicationPage
     {
         private List<GameCell> cells = new List<GameCell>();
+        private bool isTrial = false;
         
         public MainPage()
         {
@@ -30,6 +32,14 @@ namespace TicTacToe
         {
             base.OnNavigatedTo(e);
 
+            // setup trial nag
+            LicenseInformation li = new LicenseInformation();
+            isTrial = li.IsTrial();
+            
+            if (isTrial)
+                trialLink.Visibility = Visibility.Visible;
+
+            // setup gameplay
             App app = App.Current as App;
 
             PlayerX = app.GamePlayerX;
@@ -115,10 +125,12 @@ namespace TicTacToe
             if ((e.Orientation == PageOrientation.LandscapeRight) || (e.Orientation == PageOrientation.LandscapeLeft))
             {
                 TitlePanel.Visibility = Visibility.Collapsed;
+                trialLink.Visibility = Visibility.Collapsed;
             }
             else if ((e.Orientation == PageOrientation.PortraitDown) || (e.Orientation == PageOrientation.PortraitUp))
             {
                 TitlePanel.Visibility = Visibility.Visible;
+                trialLink.Visibility = isTrial ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 
