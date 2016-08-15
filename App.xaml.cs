@@ -75,7 +75,7 @@ namespace TicTacToe
             if (settings.Contains("GamePlayerO"))
                 GamePlayerO = (GameDifficulty)settings["GamePlayerO"];
             else
-                GamePlayerO = GameDifficulty.Experienced;
+                GamePlayerO = GameDifficulty.Expert;
 
             if (settings.Contains("GameIsFirstX"))
                 GameIsFirstX = (bool)settings["GameIsFirstX"];

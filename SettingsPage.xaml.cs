@@ -73,19 +73,19 @@ namespace TicTacToe
             switch (input)
             {
                 case GameDifficulty.Human:
-                    return "human";
+                    return "human player";
 
                 case GameDifficulty.Novice:
-                    return "newbie";
+                    return "phone (dumb)";
 
                 case GameDifficulty.Intermediate:
-                    return "beginner";
+                    return "phone (stupid)";
 
                 case GameDifficulty.Experienced:
-                    return "experienced";
+                    return "phone (ok-ish)";
 
                 case GameDifficulty.Expert:
-                    return "expert";
+                    return "phone (good)";
             }
 
             return String.Empty;
@@ -95,23 +95,23 @@ namespace TicTacToe
         {
             switch (input)
             {
-                case "human":
+                case "human player":
                     return GameDifficulty.Human;
 
-                case "newbie":
+                case "phone (dumb)":
                     return GameDifficulty.Novice;
 
-                case "beginner":
+                case "phone (stupid)":
                     return GameDifficulty.Intermediate;
 
-                case "experienced":
+                case "phone (ok-ish)":
                     return GameDifficulty.Experienced;
 
-                case "expert":
+                case "phone (good)":
                     return GameDifficulty.Expert;
             }
 
-            return GameDifficulty.Experienced;
+            return GameDifficulty.Expert;
         }
     }
 }
