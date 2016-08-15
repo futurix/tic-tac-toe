@@ -4,3 +4,6 @@ obj/*
 *.user
 Misc/*
 Assets/Store/Binaries/*
+packages/*/*
+Meta/Misc/*
+Meta/Store/Binaries/*

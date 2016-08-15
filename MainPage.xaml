@@ -80,9 +80,9 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" Opacity="0.5" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Icons/appbar.new.rest.png" Text="New Game" Click="NewGameButton_Click" />
-            <shell:ApplicationBarIconButton IconUri="/Icons/appbar.check.rest.png" Text="Statistics" Click="StatsButton_Click" />
-            <shell:ApplicationBarIconButton IconUri="/Icons/appbar.feature.settings.rest.png" Text="Settings" Click="SettingsButton_Click" />
+            <shell:ApplicationBarIconButton IconUri="/Icons/new.png" Text="New Game" Click="NewGameButton_Click" />
+            <shell:ApplicationBarIconButton IconUri="/Icons/check.png" Text="Statistics" Click="StatsButton_Click" />
+            <shell:ApplicationBarIconButton IconUri="/Icons/settings.png" Text="Settings" Click="SettingsButton_Click" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="About" Click="AboutMenuItem_Click" />
             </shell:ApplicationBar.MenuItems>

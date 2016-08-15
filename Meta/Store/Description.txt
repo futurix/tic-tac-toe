@@ -1,0 +1,26 @@
+Title:
+Tic Tac Toe
+
+Category:
+Games
+
+Sub-category:
+Puzzle & Trivia
+
+Description:
+Tic Tac Toe by Futurix is a mobile version of a classic game. Play against your phone, your friends, or yourself!
+
+Description of update:
+Added transparent tile and updated graphics for new screen resolutions in Windows Phone 8 (additional support for 8.1 coming soon!).
+
+Keywords:
+tic, tick, tac, tack, toe
+
+Website URL:
+http://dev.fxfp.com/
+
+Legal URL:
+http://dev.fxfp.com/
+
+Support e-mail:
+dev@fxfp.com

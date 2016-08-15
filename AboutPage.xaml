@@ -40,7 +40,7 @@
                 <LineBreak />
                 <Run x:Name="VersionSpan"></Run>
                 <LineBreak />
-                <Run>© 2011 Alex Frost, Futurix Ltd</Run>
+                <Run>© 2011-2014 Alexander Frost, Futurix Ltd</Run>
                 <LineBreak />
             </TextBlock>
             <TextBlock 
