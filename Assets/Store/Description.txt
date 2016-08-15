@@ -8,13 +8,13 @@ Detailed description:
 Tic Tac Toe by Futurix is a mobile version of a classic game. Play against your phone, your friends, or yourself!
 
 Feature app description
-Tic Tac Toe - Classic!
+Tic Tac Toe Classic
 
 Keywords:
 tic, tick, tac, tack, toe, tic-tac-toe, tic tac toe, classic, game, Futurix, noughts, naughts, crosses
 
 Legal URL:
-http://fximage.com/
+http://dev.fxfp.com/
 
 Support e-mail:
-futurixappsupport@fxfp.com
+dev@fxfp.com

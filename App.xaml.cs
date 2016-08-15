@@ -48,7 +48,8 @@ namespace TicTacToe
 
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
-            LoadSettings();
+            if (!e.IsApplicationInstancePreserved)
+                LoadSettings();
         }
 
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)

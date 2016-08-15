@@ -17,7 +17,6 @@
     tk:TiltEffect.IsTiltEnabled="True">
 
     <phone:PhoneApplicationPage.Resources>
-        <ControlTemplate x:Key="ListPickerControlTemplate2" TargetType="tk:ListPicker"/>
         <DataTemplate x:Key="ListPickerHeaderTemplate">
             <Grid>
                 <TextBlock 
@@ -39,39 +38,37 @@
             <TextBlock x:Name="PageTitle" Text="settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
-        <ScrollViewer Grid.Row="1">
-            <Grid x:Name="ContentPanel" Margin="12,0,12,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-                <tk:ListPicker 
-                    x:Name="XPicker"
-                    HorizontalAlignment="Stretch" VerticalAlignment="Top" 
-                    Grid.Row="0" 
-                    Header="Crosses" 
-                    HeaderTemplate="{StaticResource ListPickerHeaderTemplate}"
-                    ItemsSource="{Binding ElementName=SettingsObject, Path=DifficultyOptions}" 
-                    SelectedItem="{Binding ElementName=SettingsObject, Path=DifficultyX, Mode=TwoWay}" />
-                <tk:ListPicker 
-                    x:Name="OPicker"
-                    HorizontalAlignment="Stretch" VerticalAlignment="Top" 
-                    Grid.Row="1" 
-                    Header="Noughts" 
-                    HeaderTemplate="{StaticResource ListPickerHeaderTemplate}"
-                    ItemsSource="{Binding ElementName=SettingsObject, Path=DifficultyOptions}" 
-                    SelectedItem="{Binding ElementName=SettingsObject, Path=DifficultyO, Mode=TwoWay}" />
-                <Button 
-                    x:Name="ResetButton" 
-                    Content="reset statistics" 
-                    HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    Grid.Row="2"
-                    Click="ResetButton_Click" />
-            </Grid>
-        </ScrollViewer>
+            <tk:ListPicker 
+                x:Name="XPicker"
+                HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                Grid.Row="0" 
+                Header="Crosses" 
+                HeaderTemplate="{StaticResource ListPickerHeaderTemplate}"
+                ItemsSource="{Binding ElementName=SettingsObject, Path=DifficultyOptions}" 
+                SelectedItem="{Binding ElementName=SettingsObject, Path=DifficultyX, Mode=TwoWay}" />
+            <tk:ListPicker 
+                x:Name="OPicker"
+                HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                Grid.Row="1" 
+                Header="Noughts" 
+                HeaderTemplate="{StaticResource ListPickerHeaderTemplate}"
+                ItemsSource="{Binding ElementName=SettingsObject, Path=DifficultyOptions}" 
+                SelectedItem="{Binding ElementName=SettingsObject, Path=DifficultyO, Mode=TwoWay}" />
+            <Button 
+                x:Name="ResetButton" 
+                Content="reset statistics" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Grid.Row="2"
+                Click="ResetButton_Click" />
+        </Grid>
     </Grid>
 
 </phone:PhoneApplicationPage>
