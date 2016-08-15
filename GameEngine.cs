@@ -16,7 +16,7 @@ namespace TicTacToe
     public partial class MainPage
     {
         private GameDifficulty PlayerX = GameDifficulty.Human;
-        private GameDifficulty PlayerO = GameDifficulty.Expert;
+        private GameDifficulty PlayerO = GameDifficulty.Experienced;
         private bool IsFirstX = true; //TODO: Make this a user setting
 
         private int turn = -1;

@@ -22,7 +22,11 @@
     </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Border x:Name="Wrapper" BorderBrush="{StaticResource PhoneSubtleBrush}" BorderThickness="0" Background="Transparent" Margin="1,1,1,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Border 
+            x:Name="Wrapper" 
+            BorderThickness="2" BorderBrush="{StaticResource PhoneContrastBackgroundBrush}" 
+            Background="Transparent" 
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="4*" />
@@ -35,8 +39,7 @@
                     <ColumnDefinition Width="4*" />
                 </Grid.ColumnDefinitions>
                 <Rectangle 
-                    Fill="{StaticResource PhoneInverseBackgroundBrush}" 
-                    Opacity="0.125" 
+                    Fill="{StaticResource PhoneBackgroundBrush}" 
                     Grid.ColumnSpan="3" Grid.RowSpan="3" />
                 <Path 
                     x:Name="XPath" 
