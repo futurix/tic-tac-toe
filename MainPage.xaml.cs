@@ -15,14 +15,14 @@ namespace TicTacToe
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private List<TextBlock> cells = new List<TextBlock>();
+        private List<GameCell> cells = new List<GameCell>();
         
         public MainPage()
         {
             InitializeComponent();
 
             cells.AddRange(
-                new TextBlock[] { block1, block2, block3, block4, block5, block6, block7, block8, block9 }
+                new GameCell[] { block1, block2, block3, block4, block5, block6, block7, block8, block9 }
             );
         }
 
@@ -46,18 +46,21 @@ namespace TicTacToe
                 switch (app.GameState[i])
                 {
                     case ' ':
-                        cells[i].Text = String.Empty;
+                        cells[i].CellState = GameCellState.Clear;
                         break;
 
                     case 'O':
-                        cells[i].Text = sZero;
+                        cells[i].CellState = GameCellState.O;
                         break;
 
                     case 'X':
-                        cells[i].Text = sCross;
+                        cells[i].CellState = GameCellState.X;
                         break;
                 }
             }
+
+            for (int i = 0; i < app.GameHilite.Length; i++)
+                cells[i].IsHighlighted = app.GameHilite[i];
 
             if (app.IsFirstLaunch)
             {
@@ -83,26 +86,28 @@ namespace TicTacToe
 
             for (int i = 0; i < cells.Count; i++)
             {
-                switch (cells[i].Text)
+                switch (cells[i].CellState)
                 {
-                    case "":
+                    case GameCellState.Clear:
                         app.GameState[i] = ' ';
                         break;
 
-                    case sZero:
+                    case GameCellState.O:
                         app.GameState[i] = 'O';
                         break;
 
-                    case sCross:
+                    case GameCellState.X:
                         app.GameState[i] = 'X';
                         break;
                 }
+
+                app.GameHilite[i] = cells[i].IsHighlighted;
             }
         }
 
         private void block_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Move((TextBlock)sender);
+            Move((GameCell)sender);
         }
 
         private void NewGameButton_Click(object sender, EventArgs e)

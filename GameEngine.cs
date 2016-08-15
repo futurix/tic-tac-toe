@@ -24,11 +24,6 @@ namespace TicTacToe
         private int oWon = 0;
         private int catsGame = 0;
 
-        private const string sCross = "X";
-        private const string sZero = "O";
-        private const string sTagRed = "Red";
-        private const string sTagGreen = "Green";
-
         private void NextTurn()
         {
             turn = -turn;
@@ -303,13 +298,13 @@ namespace TicTacToe
 
             for (int i = 0; i < 9; i++)
             {
-                TextBlock cell = cells[i];
+                GameCell cell = cells[i];
                 int value = 0;
 
-                if (cell.Text == sCross)
+                if (cell.CellState == GameCellState.X)
                     value = 0x3;
 
-                if (cell.Text == sZero)
+                if (cell.CellState == GameCellState.O)
                     value = 0x2;
 
                 state |= value << (i * 2);
@@ -380,30 +375,18 @@ namespace TicTacToe
 
             for (int i = 0; i < 9; i++)
             {
-                string value = String.Empty;
+                GameCellState value = GameCellState.Clear;
 
                 if ((state & (1 << (i * 2 + 1))) != 0)
                 {
                     if ((state & (1 << (i * 2))) != 0)
-                        value = sCross;
+                        value = GameCellState.X;
                     else
-                        value = sZero;
+                        value = GameCellState.O;
                 }
 
-                Border wrapper = cells[i].Parent as Border;
-
-                if ((winner & (1 << (i * 2 + 1))) != 0)
-                {
-                    if (wrapper != null)
-                        wrapper.Background = new SolidColorBrush(Color.FromArgb(0xff, 0, 0x80, 0));
-                }
-                else
-                {
-                    if (wrapper != null)
-                        wrapper.Background = null;
-                }
-
-                cells[i].Text = value;
+                cells[i].CellState = value;
+                cells[i].IsHighlighted = ((winner & (1 << (i * 2 + 1))) != 0);
             }
         }
 
@@ -417,9 +400,9 @@ namespace TicTacToe
             return (state | (value << (move * 2)));
         }
 
-        private void Move(TextBlock cell)
+        private void Move(GameCell cell)
         {
-            if (cell.Text == String.Empty)
+            if (cell.CellState == GameCellState.Clear)
             {
                 int state = GetState();
                 int winner = DetectWin(state);

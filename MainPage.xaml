@@ -6,27 +6,13 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:my="clr-namespace:TicTacToe"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     shell:SystemTray.IsVisible="False">
-    
-    <phone:PhoneApplicationPage.Resources>
-        <Style x:Key="GameBlockStyle" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Arial Black" />
-            <Setter Property="FontSize" Value="96" />
-            <Setter Property="TextAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-        </Style>
-        <Style x:Key="GameBlockWrapperStyle" TargetType="Border">
-            <Setter Property="Margin" Value="1,1,1,1" />
-            <Setter Property="BorderBrush" Value="{StaticResource PhoneContrastBackgroundBrush}" />
-            <Setter Property="BorderThickness" Value="1" /> 
-        </Style>
-    </phone:PhoneApplicationPage.Resources>
     
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -47,33 +33,42 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Border Grid.Column="0" Grid.Row="0" Style="{StaticResource GameBlockWrapperStyle}">
-                    <TextBlock Name="block7" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
-                </Border>
-                <Border Grid.Column="1" Grid.Row="0" Style="{StaticResource GameBlockWrapperStyle}">
-                    <TextBlock Name="block8" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
-                </Border>
-                <Border Grid.Column="2" Grid.Row="0" Style="{StaticResource GameBlockWrapperStyle}">
-                    <TextBlock Name="block9" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
-                </Border>
-                <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource GameBlockWrapperStyle}">
-                    <TextBlock Name="block4" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
-                </Border>
-                <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource GameBlockWrapperStyle}">
-                    <TextBlock Name="block5" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
-                </Border>
-                <Border Grid.Column="2" Grid.Row="1" Style="{StaticResource GameBlockWrapperStyle}">
-                    <TextBlock Name="block6" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
-                </Border>
-                <Border Grid.Column="0" Grid.Row="2" Style="{StaticResource GameBlockWrapperStyle}">
-                    <TextBlock Name="block1" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
-                </Border>
-                <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource GameBlockWrapperStyle}">
-                    <TextBlock Name="block2" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
-                </Border>
-                <Border Grid.Column="2" Grid.Row="2" Style="{StaticResource GameBlockWrapperStyle}">
-                    <TextBlock Name="block3" Text="" Style="{StaticResource GameBlockStyle}" MouseLeftButtonDown="block_MouseLeftButtonDown" />
-                </Border>
+                <my:GameCell 
+                    x:Name="block7"
+                    Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                <my:GameCell 
+                    x:Name="block8"
+                    Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                <my:GameCell 
+                    x:Name="block9"
+                    Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                <my:GameCell 
+                    x:Name="block4"
+                    Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                <my:GameCell 
+                    x:Name="block5"
+                    Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                <my:GameCell 
+                    x:Name="block6"
+                    Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                <my:GameCell 
+                    x:Name="block1"
+                    Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                <my:GameCell 
+                    x:Name="block2"
+                    Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    MouseLeftButtonDown="block_MouseLeftButtonDown" />
+                <my:GameCell 
+                    x:Name="block3"
+                    Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    MouseLeftButtonDown="block_MouseLeftButtonDown" />
             </Grid>
         </Grid>
     </Grid>

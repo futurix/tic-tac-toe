@@ -29,6 +29,7 @@ namespace TicTacToe
         public int GameoWon { get; set; }
         public int GameCats { get; set; }
         public char[] GameState { get; set; }
+        public bool[] GameHilite { get; set; }
 
         public bool IsFirstLaunch { get; set; }
 
@@ -110,6 +111,11 @@ namespace TicTacToe
                 GameState = (char[])settings["GameState"];
             else
                 GameState = new char[] { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+
+            if (settings.Contains("GameHilite"))
+                GameHilite = (bool[])settings["GameHilite"];
+            else
+                GameHilite = new bool[] { false, false, false, false, false, false, false, false, false };
         }
 
         private void SaveSettings()
@@ -124,6 +130,7 @@ namespace TicTacToe
             settings["GameWonO"] = GameoWon;
             settings["GameCats"] = GameCats;
             settings["GameState"] = GameState;
+            settings["GameHilite"] = GameHilite;
         }
 
         private void RootFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)

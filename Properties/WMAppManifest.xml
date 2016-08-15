@@ -3,6 +3,7 @@
   <App xmlns="" ProductID="{28d8d97d-bde5-4800-9530-75b9098a9ba4}" Title="Tic-Tac-Toe" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TicTacToe author" Description="Sample description" Publisher="TicTacToe">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING"/>
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
